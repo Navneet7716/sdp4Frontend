@@ -1,0 +1,45 @@
+.Navbar {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: .7rem;
+
+}
+
+.Navbar-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .7rem;
+}
+
+.Navbar-Right {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+}
+
+.Navbar-Left {
+    display: flex;
+    align-items: center;
+}
+
+
+.Navbar-Menu {
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 1rem;
+    flex: .2;
+}
+
+.Main-Container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
