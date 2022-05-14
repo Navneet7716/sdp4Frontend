@@ -1,8 +1,9 @@
 import React from 'react'
 import { Card, Image, Text, Badge, Button, Group, useMantineTheme } from '@mantine/core';
+import "./PdftoJpeg.css"
 
 
-function PdftoJpeg() {
+function PdftoJpeg({ bannerImage, Heading, Description }) {
 
     const theme = useMantineTheme();
 
@@ -10,22 +11,21 @@ function PdftoJpeg() {
       ? theme.colors.dark[1]
       : theme.colors.gray[7];
   return (
-    <div style={{ width: 340, margin: 'auto' }}>
+    <div style={{ width: 340, margin: 'auto' }} class="zoom">
     <Card shadow="sm" p="lg">
       <Card.Section>
-        <Image src="./JPEG.png" height={160} alt="Norway" fit='contain'/>
+        <Image src={bannerImage} height={160} alt="Norway" fit='contain'/>
       </Card.Section>
 
       <Group position="apart" style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
-        <Text weight={500}>Convert from JPEG to PDF</Text>
+        <Text weight={500}>{Heading}</Text>
         <Badge color="green" variant="light">
          new
         </Badge>
       </Group>
 
       <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5 }}>
-        With our best in class converter you don't need to worry no more, easily convert your awesome jpgs into a pdf file
-        and share with the world
+        {Description}
       </Text>
 
       <Button variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>

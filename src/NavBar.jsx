@@ -10,6 +10,9 @@ import {
 import { useMediaQuery } from "@mantine/hooks";
 import { SunIcon, MoonIcon } from "@modulz/radix-icons";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { RemoveUser } from "./Components/Redux/UserContext/UserSlice";
+import { Navigate } from "react-router-dom";
 
 function NavBar() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -17,6 +20,14 @@ function NavBar() {
   const dark = colorScheme === "dark";
   const [opened, setOpened] = useState(false);
   const title = opened ? "Close navigation" : "Open navigation";
+  const dispatch = useDispatch();
+
+
+  const HandleLogout = () => {
+    dispatch(RemoveUser())
+    localStorage.removeItem("token");
+    <Navigate to='/' />
+  }
 
   const matches = useMediaQuery("(min-width: 900px)");
   return (
@@ -38,6 +49,7 @@ function NavBar() {
             >
               {dark ? "Dark" : "Light"}
             </Button>
+            <Button variant="gradient" gradient={{ from: 'orange', to: 'red' }} onClick={HandleLogout} > Logout</Button>
             <Button variant="outline"> Home</Button>
             <Button variant="outline"> Files</Button>
           </div>

@@ -12,7 +12,7 @@ const PrivateRoute = ({ children, ...rest }) => {
 
   if (!isLoggedin(token)) {
     dispatch(RemoveUser());
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
   return children;
 };

@@ -32,7 +32,7 @@ export const userSlice = createSlice({
 
 export const { InitializeUser, RemoveUser, updateImage,removeImage, UpdateUser} = userSlice.actions;
 
-export const selectUser = (state) => state.user ? state.user.user : null;
+export const selectUser = (state) => state.user ? state.user : null;
 export const selectIsAuth = (state) => state.isAuth;
 export const selectIsToken = (state) => state.user ? state.user.token  : null;
 export const selectImage = (state) => state.image;
