@@ -1,6 +1,6 @@
 import React from "react";
 import { useMantineTheme } from "@mantine/core";
-import PdftoJpeg from "./PdftoJpeg";
+import ConvertCard from "./ConvertCard";
 import { useMediaQuery } from "@mantine/hooks";
 import { selectUser } from "../Redux/UserContext/UserSlice";
 import { useSelector } from "react-redux";
@@ -47,44 +47,50 @@ function FileHome() {
           marginBottom: "1rem"
         }}
       >
-        <PdftoJpeg
+        <ConvertCard
           bannerImage={"./JPEG.png"}
           Heading={"Convert from JPEG to PDF"}
           Description={`With our best in class converter you don't need to worry no more, easily convert your awesome jpgs into a pdf file
         and share with the world`}
+          Convertlink={'jpg-pdf'}
         />
 
-        <PdftoJpeg
+        <ConvertCard
           bannerImage={"./PNG-PDF.png"}
           Heading={"Convert from PNG to PDF"}
           Description={`With our best in class converter you don't need to worry no more, easily convert your awesome jpgs into a pdf file
         and share with the world`}
+        Convertlink={'png-pdf'}
         />
 
-        <PdftoJpeg
+        <ConvertCard
           bannerImage={"./WORD-PDF.png"}
           Heading={"Convert from WORD to PDF"}
           Description={`With our best in class converter you don't need to worry no more, easily convert your awesome jpgs into a pdf file
         and share with the world`}
+        Convertlink={'word-pdf'}
         />
 
-        <PdftoJpeg
+        <ConvertCard
           bannerImage={"./PPTX-PDF.png"}
           Heading={"Convert from PPTX to PDF"}
           Description={`With our best in class converter you don't need to worry no more, easily convert your awesome jpgs into a pdf file
         and share with the world`}
+        Convertlink={'pptx-pdf'}
         />
-        <PdftoJpeg
+        <ConvertCard
           bannerImage={"./WORD-TXT.png"}
           Heading={"Convert from WORD to TXT"}
           Description={`With our best in class converter you don't need to worry no more, easily convert your awesome jpgs into a pdf file
         and share with the world`}
+        Convertlink={'word-txt'}
         />
-        <PdftoJpeg
+        <ConvertCard
           bannerImage={"./PDF-JPG.png"}
           Heading={"Convert from PDF to JPG"}
           Description={`With our best in class converter you don't need to worry no more, easily convert your awesome jpgs into a pdf file
         and share with the world`}
+        Convertlink={'pdf-jpg'}
         />
       </div>
     </div>

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Card, Image, Text, Badge, Button, Group, useMantineTheme } from '@mantine/core';
 import "./PdftoJpeg.css"
+import { Link } from "react-router-dom";
 
 
-function PdftoJpeg({ bannerImage, Heading, Description }) {
+function ConvertCard({ bannerImage, Heading, Description, Convertlink }) {
 
     const theme = useMantineTheme();
 
@@ -28,12 +29,14 @@ function PdftoJpeg({ bannerImage, Heading, Description }) {
         {Description}
       </Text>
 
-      <Button variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>
-        Convert
-      </Button>
+
+    <Button component={Link} to={`/convert/${Convertlink}`}  variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>
+      Convert
+    </Button>
+  
     </Card>
   </div>
   )
 }
 
-export default PdftoJpeg
+export default ConvertCard
