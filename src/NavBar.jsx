@@ -10,24 +10,25 @@ import {
 import { useMediaQuery } from "@mantine/hooks";
 import { SunIcon, MoonIcon } from "@modulz/radix-icons";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { RemoveUser } from "./Components/Redux/UserContext/UserSlice";
-import { Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RemoveUser, selectUser } from "./Components/Redux/UserContext/UserSlice";
+import { Link, Navigate } from "react-router-dom";
 
 function NavBar() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+
+  const user = useSelector(selectUser);
 
   const dark = colorScheme === "dark";
   const [opened, setOpened] = useState(false);
   const title = opened ? "Close navigation" : "Open navigation";
   const dispatch = useDispatch();
 
-
   const HandleLogout = () => {
-    dispatch(RemoveUser())
+    dispatch(RemoveUser());
     localStorage.removeItem("token");
-    <Navigate to='/' />
-  }
+    <Navigate to="/" />;
+  };
 
   const matches = useMediaQuery("(min-width: 900px)");
   return (
@@ -49,9 +50,26 @@ function NavBar() {
             >
               {dark ? "Dark" : "Light"}
             </Button>
-            <Button variant="gradient" gradient={{ from: 'orange', to: 'red' }} onClick={HandleLogout} > Logout</Button>
-            <Button variant="outline"> Home</Button>
-            <Button variant="outline"> Files</Button>
+            <Button
+              variant="gradient"
+              gradient={{ from: "orange", to: "red" }}
+              onClick={HandleLogout}
+            >
+              {" "}
+              Logout
+            </Button>
+            <Button
+                component={Link}
+                to={`/home`}
+                variant="outline"
+                color="blue"
+              >
+                Home
+              </Button>
+            <Button 
+            component={Link}
+            to={`/user/files/${user.email}`}
+            variant="outline"> Files</Button>
           </div>
 
           <div className="Navbar-Left">
@@ -92,8 +110,26 @@ function NavBar() {
               >
                 {dark ? "Dark" : "Light"}
               </Button>
-              <Button variant="outline"> Home</Button>
-              <Button variant="outline"> Files</Button>
+              <Button
+              variant="gradient"
+              gradient={{ from: "orange", to: "red" }}
+              onClick={HandleLogout}
+            >
+              {" "}
+              Logout
+            </Button>
+              <Button
+                component={Link}
+                to={`/home`}
+                variant="outline"
+                color="blue"
+              >
+                Home
+              </Button>
+              <Button
+                component={Link}
+                to={`/user/files/${user.email}`}
+              variant="outline"> Files</Button>
             </div>
           </Drawer>
         </Paper>
